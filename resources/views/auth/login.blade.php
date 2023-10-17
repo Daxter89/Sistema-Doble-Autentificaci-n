@@ -7,9 +7,9 @@
         <x-validation-errors class="mb-4" />
 
         @if (session('status'))
-            <div class="mb-4 font-medium text-sm text-green-600">
-                {{ session('status') }}
-            </div>
+        <div class="mb-4 font-medium text-sm text-green-600">
+            {{ session('status') }}
+        </div>
         @endif
 
         <form method="POST" action="{{ route('login') }}">
@@ -32,26 +32,38 @@
                 </label>
             </div>
 
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
+            <div class="mt-4 flex items-center justify-between">
+                <div>
+                    @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
                         {{ __('¿Has olvidado tu contraseña?') }}
                     </a>
-                @endif
+                    @endif
+                </div>
 
-                <x-button class="ml-4">
-                    {{ __('Iniciar sesión') }}
-                </x-button>
+                <div class="text-center">
+                    <x-button class="mb-4">
+                        {{ __('Iniciar sesión') }}
+                    </x-button>
+                    <x-button>
+                        <a href="{{ route('register') }}">{{ __('Registrarse') }}</a>
+                    </x-button>
+                </div>
             </div>
-        </form>
-        <x-button class="ml-4">
-            <a href="{{ route('register') }}">{{ __('Registrarse') }}
-            </a>
-        </x-button>
-        
-        <a href="/google-auth/redirect" class="font-semibold text-gray-600 hover:text-gray-900 
-        focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
-        SSO GOOGLE</a>
 
+            <div class="mt-4 text-center">
+                <a href="/google-auth/redirect" class="btn btn-primary btn-lg">
+                    <i class="fab fa-google"></i> Registrarse con Google
+                </a>
+            </div>
+
+            <div class="mt-4 text-center">
+                <a href="/github-auth/redirect" class="btn btn-primary btn-lg">
+                    <i class="fab fa-github"></i> Registrarse con Github
+                </a>
+            </div>
+
+
+        </form>
     </x-authentication-card>
 </x-guest-layout>
