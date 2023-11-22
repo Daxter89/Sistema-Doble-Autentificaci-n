@@ -62,8 +62,6 @@
                     <i class="fab fa-github"></i> Registrarse con Github
                 </a>
             </div>
-
-
         </form>
     </x-authentication-card>
 </x-guest-layout>
