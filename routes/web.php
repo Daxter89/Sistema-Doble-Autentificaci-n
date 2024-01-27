@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\SQWORDController;
 
 /*
 |--------------------------------------------------------------------------
@@ -96,8 +97,12 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
+    // Rutas del calendario
     Route::get('Calendario/index', [CalendarController::class, 'index'])->name('Calendario');
     Route::post('Calendario', [CalendarController::class, 'store'])->name('Calendario.store');
+
+    // Rutas del juego sqword
+    Route::get('SQWORD', [SQWORDController::class, 'mostrar'])->name('SQWORD');
 
 });
 

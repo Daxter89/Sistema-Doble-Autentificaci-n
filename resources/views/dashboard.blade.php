@@ -24,6 +24,11 @@
                     Ir al Calendario
                 </a>
             </div>
+            <div>
+                <a href="{{ route('SQWORD') }}" class="btn btn-primary">
+                    Jugar a SQWORD
+                </a>
+            </div>
         </div>
     </div>
 </x-app-layout>
